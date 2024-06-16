@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InfCirle</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="/" class="header-title">
+          <h1>InfCircle</h1>
+        </a>
+        <button id="sidebarToggle" class="sidebar-toggle">&#9776;</button>
+        <nav class="nav-right">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Stories</a></li>
+            <li><a href="/">Business</a></li>
+            <li><a href="/about">About/Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <aside id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" id="closeSidebar"
+        >&times;</a
+      >
+      <a href="/">Home</a>
+      <a href="/">Stories</a>
+      <a href="/manage">Login</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
+    </aside>
+    <div id="mainContent" class="container">
+      <div class="search-bar">
+        <input type="search" placeholder="Search Blogs..." id="search-input" />
+        <button id="search-button">Search</button>
+      </div>
+      <section class="main-section">
+        <div class="latest">
+          <div class="news-cards-container">
+            {% for post in posts %}
+            <div class="news-card">
+              <div class="news-card-content">
+                {% if post.image %}
+                <img
+               
+                  src="{{ post.image.url}}"
+                  alt="Article Image"
+                  style="width: 100%"
+                />
+                {% else %}
+                <img src="" alt="Placeholder Image" style="width: 100%" />
+                {% endif %}
+                <a
+                  href="/posts/{{ post.id }}"
+                  style="color: rgb(0, 0, 0); text-decoration: none"
+                >
+                  <h2 style="font-size: 16px; padding: 8px">
+                    {{ post.title }}
+                  </h2>
+                </a>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <ul>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+          </ul>
+        </div>
+        <div class="footer-copyright">
+          <p>Copyright © 2024 InfCircle. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+  </body>
+</html>
