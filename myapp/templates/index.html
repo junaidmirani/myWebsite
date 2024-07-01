@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InfCirle</title>
+    <title>InfCircle</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}" />
   </head>
@@ -47,8 +47,7 @@
               <div class="news-card-content">
                 {% if post.image %}
                 <img
-               
-                  src="{{ post.image.url}}"
+                  src="{{ post.image.url }}"
                   alt="Article Image"
                   style="width: 100%"
                 />
@@ -69,6 +68,9 @@
           </div>
         </div>
       </section>
+      <!-- Business Blogs Section -->
+
+      <!-- End of Business Blogs Section -->
     </div>
     <footer class="footer">
       <div class="footer-container">
@@ -92,6 +94,35 @@
         </div>
       </div>
     </footer>
-    <!-- <script src="{% static 'js/script.js' %}"></script> -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sidebarToggle = document.getElementById("sidebarToggle");
+        const sidebar = document.getElementById("sidebar");
+        const closeSidebar = document.getElementById("closeSidebar");
+        const mainContent = document.getElementById("mainContent");
+
+        sidebarToggle.addEventListener("click", () => {
+          sidebar.style.width = "250px";
+          mainContent.style.marginLeft = "250px";
+        });
+
+        closeSidebar.addEventListener("click", () => {
+          sidebar.style.width = "0";
+          mainContent.style.marginLeft = "0";
+        });
+      });
+      //
+      // const categoryDropdown = document.getElementById("category-dropdown");
+      // const sidediv = document.getElementById("side-div");
+
+      // categoryDropdown.addEventListener("change", (e) => {
+      //   const selectedCategory = e.target.value;
+      //   fetch(`/sidediv?category=${selectedCategory}`)
+      //     .then((response) => response.text())
+      //     .then((html) => {
+      //       sidediv.innerHTML = html;
+      //     });
+      // });
+    </script>
   </body>
 </html>
