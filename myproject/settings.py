@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-vsj)yv=o(-*a@a4865$+e-^rw*37r7=8n7e!t#vc@bw#!io3ue'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['infcircle.com']
+ALLOWED_HOSTS = ['infcircle.com', '127.0.0.1']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 600,
+    'width': '100%',
+    'selector': 'textarea',
+    'plugins': 'preview importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media codesample table charmap pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars emoticons accordion',
+    'toolbar': "undo redo | accordion accordionremove | blocks fontfamily fontsize | bold italic underline strikethrough | align numlist bullist | link image | table media | lineheight outdent indent| forecolor backcolor removeformat | charmap emoticons | code fullscreen preview | save print | pagebreak anchor codesample | ltr rtl",
+    'autosave_ask_before_unload': True,
+    'autosave_interval': '30s',
+    'autosave_prefix': '{path}{query}-{id}-',
+    'autosave_restore_when_empty': False,
+    'autosave_retention': '2m',
+    'image_advtab': True,
+    'importcss_append': True,
+    'quickbars_selection_toolbar': 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+    'noneditable_class': 'mceNonEditable',
+    'toolbar_mode': 'sliding',
+    'contextmenu': 'link image table',
+    'content_style': 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+}

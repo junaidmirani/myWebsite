@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ post.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'post.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="/" class="header-title">
+          <h1>InfCircle</h1>
+        </a>
+        <button id="sidebarToggle" class="sidebar-toggle">&#9776;</button>
+
+        <nav class="nav-right">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/">Stories</a></li>
+            <li><a href="/">Business</a></li>
+            <li><a href="/">About/Contact</a></li>
+            <!-- <li><a href="/">Contact</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <aside id="sidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" id="closeSidebar"
+        >&times;</a
+      >
+      <a href="/">Home</a>
+      <a href="/">Stories</a>
+      <a href="/">Business</a>
+      <a href="/">About/Contact</a>
+      <!-- <a href="/contact">Contact Us</a> -->
+    </aside>
+    <main>
+      <article class="article">
+        <h1 class="content-title">{{ post.title }}</h1>
+        <p class="author">Author: {{post.writer_name}}</p>
+        <p>{{post.date_created}}</p>
+
+        {% if post.image %}
+        <img
+          src="{{ post.image.url }}"
+          alt="{{ post.title }}"
+          style="width: 100%"
+        />
+        {% elif post.image_url %}
+        <img
+          src="{{ post.image_url }}"
+          alt="{{ post.title }}"
+          style="width: 100%"
+        />
+        {% else %}
+        <p>No image available</p>
+        {% endif %}
+        <p class="content-para">{{ post.content|safe }}</p>
+      </article>
+    </main>
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-links">
+          <ul>
+            <li><a href="About.html">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <ul>
+            <li><a href="#" class="fa fa-facebook"></a></li>
+            <li><a href="#" class="fa fa-twitter"></a></li>
+            <li><a href="#" class="fa fa-instagram"></a></li>
+          </ul>
+        </div>
+        <div class="footer-copyright">
+          <p>Copyright © 2024 InfCircle. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="{% static 'js/script.js' %}"></script>
+</html>

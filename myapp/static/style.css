@@ -304,6 +304,7 @@
     color: #fff;
     padding: 20px;
     text-align: center;
+
   }
   
   .footer-container {
@@ -368,7 +369,8 @@
       align-items: center;
     }
     .header-title{
-      margin-left: 10px;
+      /* margin-left: 10px; */
+      margin: 0 auto;
     }
   
     .nav-right ul {

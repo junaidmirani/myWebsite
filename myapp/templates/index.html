@@ -30,9 +30,9 @@
       >
       <a href="/">Home</a>
       <a href="/">Stories</a>
-      <a href="/manage">Login</a>
-      <a href="/about">About</a>
-      <a href="/contact">Contact</a>
+      <!-- <a href="/manage">Login</a> -->
+      <a href="/">Business</a>
+      <a href="/">About/Contact</a>
     </aside>
     <div id="mainContent" class="container">
       <div class="search-bar">
@@ -48,12 +48,19 @@
                 {% if post.image %}
                 <img
                   src="{{ post.image.url }}"
-                  alt="Article Image"
+                  alt="{{ post.title }}"
+                  style="width: 100%"
+                />
+                {% elif post.image_url %}
+                <img
+                  src="{{ post.image_url }}"
+                  alt="{{ post.title }}"
                   style="width: 100%"
                 />
                 {% else %}
-                <img src="" alt="Placeholder Image" style="width: 100%" />
+                <p>No image available</p>
                 {% endif %}
+
                 <a
                   href="/posts/{{ post.id }}"
                   style="color: rgb(0, 0, 0); text-decoration: none"
@@ -78,8 +85,8 @@
           <ul>
             <li><a href="/about">About Us</a></li>
             <li><a href="/contact">Contact Us</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <!-- <li><a href="#">Terms of Use</a></li> -->
+            <!-- <li><a href="#">Privacy Policy</a></li> -->
           </ul>
         </div>
         <div class="footer-social">
@@ -123,6 +130,42 @@
       //       sidediv.innerHTML = html;
       //     });
       // });
+      function search_function() {
+        // Declare variables
+        var input, filter, newsCards, newsCardContent, title, i, txtValue;
+        input = document.getElementById("search-input");
+        filter = input.value.toUpperCase();
+        newsCards = document.getElementsByClassName("news-card");
+
+        // Loop through all news cards and hide/show based on the search query
+        for (i = 0; i < newsCards.length; i++) {
+          newsCardContent =
+            newsCards[i].getElementsByClassName("news-card-content")[0];
+          title = newsCardContent.getElementsByTagName("h2")[0];
+          txtValue = title.textContent || title.innerText;
+
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            newsCards[i].style.display = "";
+          } else {
+            newsCards[i].style.display = "none";
+          }
+        }
+      }
+
+      // Event listener for the Search button
+      document
+        .getElementById("search-button")
+        .addEventListener("click", search_function);
+
+      // Optional: Event listener for Enter key press in the search input
+      document
+        .getElementById("search-input")
+        .addEventListener("keyup", function (event) {
+          if (event.key === "Enter") {
+            search_function();
+          }
+        });
+      // text editor
     </script>
   </body>
 </html>
