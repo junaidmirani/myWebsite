@@ -147,5 +147,6 @@ TINYMCE_DEFAULT_CONFIG = {
     'noneditable_class': 'mceNonEditable',
     'toolbar_mode': 'sliding',
     'contextmenu': 'link image table',
+    'paste-data-images': True,
     'content_style': 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
 }

@@ -39,8 +39,12 @@
     <main>
       <article class="article">
         <h1 class="content-title">{{ post.title }}</h1>
-        <p class="author">Author: {{post.writer_name}}</p>
-        <p>{{post.date_created}}</p>
+        <p class="author" style="font-size: 14px">
+          Author: {{post.writer_name}}
+        </p>
+        <p class="date_created" style="font-size: 12px">
+          {{post.date_created}}
+        </p>
 
         {% if post.image %}
         <img

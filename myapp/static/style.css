@@ -7,7 +7,8 @@
   
   /* Global Styles */
   body {
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
+    font-family: 400 16px/1.5 "Lora",serif;
     font-size: 14px;
     background-color: #f4f4f4;
     color: #333;

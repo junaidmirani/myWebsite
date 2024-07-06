@@ -157,17 +157,22 @@ header {
   object-fit: cover;
 }
 
+img{
+  border-radius: 50px;
+  margin: 20px 0;
+}
 .content-title {
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 22px;
-  margin: 20px 0;
+  margin:  0px;
 }
 .author {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family:  "Lora",serif;
 }
 .content-para {
-  font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times,
-    serif;
+  /* font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif; */
+  font-family:  "Lora",serif;
+
   font-size: 18px;
   margin: 20px 0;
 }
